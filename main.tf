@@ -25,14 +25,6 @@ resource "azurerm_storage_blob" "example" {
   source               = data.archive_file.terraform_code.output_path
 }
 
-output "storage_id" {
-  value = azurerm_storage_account.example.id
-}
-
-output "blob_url" {
-  value = azurerm_storage_blob.example.url
-}
-
 data "archive_file" "terraform_code" {
   type        = "zip"
   source_dir  = path.module
